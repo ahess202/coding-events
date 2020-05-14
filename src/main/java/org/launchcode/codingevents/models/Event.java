@@ -1,6 +1,9 @@
 package org.launchcode.codingevents.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.validation.constraints.*;
+import java.util.Date;
 import java.util.Objects;
 
 public class Event {
@@ -26,19 +29,39 @@ public class Event {
     @AssertTrue(message = "User must register for event.")
     private boolean mustRegister;
 
+    @NotNull(message = "Number of attendees required!")
+    @Min(1)
+    @Digits(integer = 100000, fraction = 0, message = "Must enter a number!")
+    private int numAttendees;
 
-    public Event(String name, String description, String contactEmail, String venue, boolean mustRegister) {
+    @NotNull(message = "Date required!")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Future
+    private Date eventDate;
+
+
+    public Event(String name, String description, String contactEmail, String venue, boolean mustRegister, int numAttendees, Date eventDate) {
         this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
         this.venue = venue;
         this.mustRegister = mustRegister;
+        this.numAttendees = numAttendees;
+        this.eventDate = eventDate;
     }
 
     public Event() {
         this.id = this.nextId;
         nextId++;
+    }
+
+    public Date getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(Date eventDate) {
+        this.eventDate = eventDate;
     }
 
     public String getVenue() {
@@ -83,6 +106,14 @@ public class Event {
 
     public int getId() {
         return id;
+    }
+
+    public int getNumAttendees() {
+        return numAttendees;
+    }
+
+    public void setNumAttendees(int numAttendees) {
+        this.numAttendees = numAttendees;
     }
 
     @Override

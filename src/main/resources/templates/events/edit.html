@@ -17,6 +17,31 @@
         </label>
     </div>
     <div class="form-group">
+        <label>Venue
+            <input type="text" name="venue" th:value="${event.venue}" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Number of Attendees
+            <input type="number" name="description" th:value="${event.description}" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Event Date
+            <input type="date" name="eventDate" th:value="${event.eventDate}" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Contact Email
+            <input type="text" name="contactEmail" th:value="${event.contactEmail}" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Register for event
+            <input type="checkbox" th:field="${event.mustRegister}" th:checked="${event.mustRegister}"class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
         <input type="hidden" th:value="${event.id}" name="eventId" />
         <input type="submit" value="Edit">
     </div>

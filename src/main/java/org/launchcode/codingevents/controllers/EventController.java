@@ -9,6 +9,7 @@ import org.launchcode.codingevents.models.Event;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -67,10 +68,15 @@ public class EventController {
         return "events/edit";
     }
     @PostMapping("edit")
-    public String processEditForm(int eventId, String name, String description) {
+    public String processEditForm(int eventId, String name, String description, String venue, int numAttendees, Date eventDate, String contactEmail, boolean mustRegister) {
         Event event = EventData.getById(eventId);
         event.setName(name);
         event.setDescription(description);
+        event.setVenue(venue);
+        event.setNumAttendees(numAttendees);
+        event.setEventDate(eventDate);
+        event.setContactEmail(contactEmail);
+        event.setMustRegister(mustRegister);
         return "redirect:/events";
     }
 
