@@ -4,5 +4,5 @@ body {
 
 .error {
     color: red;
-    font-decoration: italic;
+    font-style: italic;
 }

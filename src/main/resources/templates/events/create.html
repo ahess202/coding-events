@@ -20,10 +20,22 @@
         <p class="error" th:errors="${event.description}"></p>
     </div>
     <div class="form-group">
+        <label>Venue
+            <input th:field="${event.venue}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.venue}"></p>
+    </div>
+    <div class="form-group">
         <label>Contact Email
             <input th:field="${event.contactEmail}" class="form-control">
         </label>
         <p class="error" th:errors="${event.contactEmail}"></p>
+    </div>
+    <div class="form-group">
+        <label>Register for event
+            <input type="checkbox" th:field="${event.mustRegister}" th:checked="${event.mustRegister}"class="form-control">
+        </label>
+        <p class="error" th:errors="${event.mustRegister}"></p>
     </div>
     <div class="form-group">
         <input type="submit" value="Create">
