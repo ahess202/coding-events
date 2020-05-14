@@ -1,5 +1,8 @@
 package org.launchcode.codingevents.models;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 public class Event {
@@ -7,18 +10,28 @@ public class Event {
     private int id;
     private static int nextId = 1;
 
+    @NotBlank(message = "Name is required!")
+    @Size(min = 3, max = 50, message = "Name must be between 3 and 5 characters!")
     private String name;
+
+    @Size(max = 500, message = "Description too long! Maximum 500 characters.")
     private String description;
+
+    @NotBlank(message = "Email is required!")
+    @Email(message = "Invalid email. Try again.")
+    private String contactEmail;
+
+
+    public Event(String name, String description, String contactEmail) {
+        this();
+        this.name = name;
+        this.description = description;
+        this.contactEmail = contactEmail;
+    }
 
     public Event() {
         this.id = this.nextId;
         nextId++;
-    }
-
-    public Event(String name, String description) {
-        this();
-        this.name = name;
-        this.description = description;
     }
 
     public String getName() {
@@ -35,6 +48,14 @@ public class Event {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getContactEmail() {
+        return contactEmail;
+    }
+
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
     }
 
     public int getId() {
