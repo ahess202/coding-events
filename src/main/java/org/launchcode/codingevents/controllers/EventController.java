@@ -21,7 +21,7 @@ public class EventController {
 
     // findAll, save, findById
 
-    private static List<Event> events = new ArrayList<>();
+//    private static List<Event> events = new ArrayList<>();
 
     @GetMapping
     public String displayAllEvents(Model model) {

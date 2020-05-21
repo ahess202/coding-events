@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
-    <title>Coding Events</title>
+    <title th:text="${title}"></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" th:href="@{/styles.css}">
     <script th:src="@{/script.js}"></script>
@@ -11,10 +11,14 @@
 
 <nav th:fragment="header">
     <h1 th:text="${title}">Coding Events</h1>
-    <ul>
+    <ul class="nav">
         <li class="nav-item"><a class="nav-link" href="/events">All Events</a></li>
         <li class="nav-item"><a class="nav-link" href="/events/create">Create Event</a></li>
         <li class="nav-item"><a class="nav-link" href="/events/delete">Delete Event</a></li>
+        <li class="nav-item"><a class="nav-link" href="/eventCategories">All Categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="/eventCategories/create">Create Category</a></li>
+        <li class="nav-item"><a class="nav-link" href="/eventCategories/delete">Delete Category</a></li>
+
     </ul>
 </nav>
 
